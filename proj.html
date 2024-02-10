@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Support Chatbot</title>
+  <style>
+    body {
+      /* You can use any URL or local file path for your background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin: 0;
+      padding: 0;
+      font-family: italic;
+    }
+
+    .logo {
+      float: left;
+      padding: 10px;
+    }
+
+    .logo h1 {
+      margin: 0;
+      color: rgb(19, 19, 19); /* Or any other color you prefer */
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fdf9f9;
+      padding: 10px;
+    }
+
+    .links {
+      display: flex;
+    }
+
+    .links a {
+      color: rgb(149, 237, 250);
+      text-decoration: none;
+      padding: 0 10px;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: rgb(19, 19, 19);
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    /* Add underline effect on hover */
+    .navbar a:hover {
+      color: rgb(19, 18, 18);
+      text-decoration: underline; /* Add this line to apply underline on hover */
+    }
+
+    .project-name {
+        color: #4a90e2; /* Updated color */
+        text-align: center;
+        font-size: 48px;
+        text-shadow: 0 0 0px #4a8fe2,0 0 100px #303232, 0 0 150px #333434; /* Updated text shadow */
+      }
+      
+
+    /* Reset default margin and padding for better styling consistency */
+    .content {
+      padding: 50px 0;
+    }
+
+    .imagecard {
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .section {
+      display: flex;
+    }
+
+    .left,
+    .right {
+      flex: 1; /* Make both left and right sections take equal space */
+      padding: 10px; /* Add padding for spacing */
+    }
+
+    .right {
+      display: flex; /* Allow content to stretch vertically */
+      flex-direction: column; /* Stack content vertically */
+      justify-content: space-between;
+      margin-left: 10%; /* Add space between content */
+    }
+
+    .card {
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 200px; 
+      transition: transform 0.3s ease; /* Adjust the height according to your image */
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease; /* Add transition for image */
+    }
+
+    .content-section {
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px; /* Rounded corners for the content div */
+      overflow: hidden; /* Hide any content that might overflow */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+      transition: transform 0.3s ease; /* Apply transition effect to transform property */
+    }
+    
+    /* Apply hover effect */
+    .content-section:hover {
+      transform: translateY(-10px); /* Move the content div up by 10px on hover */
+    }
+
+    .card-containerr {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .cardd {
+      width: calc(25% - 20px); /* Adjust width as needed */
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.3s ease; /* Apply transition effect to transform property */
+    }
+    
+    .cardd img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .card-contentt {
+      padding: 10px;
+    }
+    
+    .card-contentt h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+    
+    .card-contentt p {
+      margin-bottom: 0;
+    }
+    
+    .card-container {
+      display: grid;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px; 
+    }
+
+    .cardd {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease; 
+    }
+
+    .cardd:hover {
+      transform: scale(1.05); /* Apply scale effect on hover */
+    }
+
+    .card-image {
+      /* Add transition effect */
+      width: 100%;
+      height: auto;
+    }
+
+    .card-contentt {
+      background-color: white; /* Semi-transparent background */
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease; /* Add transition effect */
+    }
+
+    .cardd:hover .card-contentt {
+      background-color: rgba(255, 255, 255, 1); /* Change background color on hover */
+    }
+
+    .card-contentt h3 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .card-contentt p {
+      margin: 0;
+    }
+
+    /* Adjustments for smaller screens */
+    @media screen and (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+
+      .left, .right {
+        padding: 0;
+      }
+      .cardd {
+        width: calc(50% - 20px); /* Adjust width for 2 cards per row on smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h1>ⓂⓈⒸ</h1>
+        </div>
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#team-details">Team</a>
+        </div>
+    </div>
+    
+
+    <div id="home" class="content">
+        <div class="content-section">
+            <h1 class="project-name">Mental Health Support Chatbot</h1>
+            <div class="section">
+                <div class="left">
+                    <p>
+                        Develop a mental health support chatbot to provide assistance and guidance to individuals facing mental health challenges. The chatbot should offer a safe and confidential space for users to express their feelings, receive emotional support, and access relevant resources.
+                    </p>
+                    <h2>Features of the Mental Health Support Chatbot:</h2>
+                    <ol>
+                        <li><b>Interactive Conversations: </b>The chatbot should engage users in interactive conversations, using natural language processing to understand and respond to their messages empathetically.</li>
+                        <li><b>Emotional Support: </b>Provide emotional support by actively listening to users, offering empathy, and validating their feelings and experiences.</li>
+                        <li><b>Crisis Intervention: </b>Implement protocols for identifying users who may be in crisis and provide appropriate intervention strategies, including referral to mental health professionals or crisis hotlines.</li>
+                        <li><b>Resource Recommendations: </b>Offer resources such as articles, videos, self-help guides, and exercises to help users cope with their mental health challenges.</li>
+                        <li><b>Anonymous and Confidential:</b> Ensure that interactions with the chatbot are anonymous and confidential to encourage users to share their thoughts and feelings without fear of judgment or stigma.</li>
+                        <li><b>Accessibility:</b> Make the chatbot accessible across multiple platforms, including web browsers, mobile devices, and messaging applications.</li>
+                    </ol>
+                </div>
+                <div class="right">
+                    <div >
+                        <img src="chatbot.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    </div>
+    
+    <div id="team-details" class="content">
+        <h2><center>Team Members</center></h2>
+        <div class="card-containerr">
+            <div class="cardd">
+                <img src="tanmayi.jpg" alt="Team Member 1" class="card-image">
+                <div class="card-contentt">
+                    <h3>Tanmayi</h3>
+                    <p>Branch: AID</p>
+                </div>
+            </div>
+            <!-- Repeat the card structure for each team member -->
+            <div class="cardd">
+                <img src="bhavya.jpg" alt="Team Member 2" class="card-image">
+                <div class="card-contentt">
+                    <h3>Bhavya</h3>
+                    <p>Branch: CSM</p>
+                </div>
+            </div>
+            <div class="cardd">
+                <img src="anjani.jpg" alt="Team Member 2" class="card-image">
+                <div class="card-contentt">
+                    <h3>Anjani</h3>
+                    <p>Branch: AID</p>
+                </div>
+            </div>
+            <div class="cardd">
+                <img src="sailu.jpg" alt="Team Member 2" class="card-image">
+                <div class="card-contentt">
+                    <h3>Sailaja</h3>
+                    <p>Branch: AID</p>
+                </div>
+            </div>
+            <div class="cardd">
+                <img src="blessy.jpg" alt="Team Member 2" class="card-image">
+                <div class="card-contentt">
+                    <h3>Blessy</h3>
+                    <p>Branch: CAI</p>
+                </div>
+            </div>
+            <div class="cardd">
+                <img src="moni.jpg" alt="Team Member 2" class="card-image">
+                <div class="card-contentt">
+                    <h3>Monika</h3>
+                    <p>Branch: CSM</p>
+                </div>
+            </div>
+            <div class="cardd">
+                <img src="jaya.jpg" alt="Team Member 2" class="card-image">
+                <div class="card-contentt">
+                    <h3>Jaya</h3>
+                    <p>Branch: AID</p>
+                </div>
+            </div>
+            <div class="cardd">
+                <img src="bhar.jpg" alt="Team Member 2" class="card-image">
+                <div class="card-contentt">
+                    <h3>Bhargavi</h3>
+                    <p>Branch: CAI</p>
+                </div>
+            </div>
+            <!-- Repeat for the remaining team members -->
+        </div>
+    </div>
+    
+    </div>
+    
+
+</body>
+</html>
